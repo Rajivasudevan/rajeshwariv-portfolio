@@ -141,6 +141,19 @@
             transform: translateY(0);
         }
         }
+        /* Mobile scroll fix */
+        /* Mobile scroll fix */
+        @media (max-width: 768px) {
+        html, body {
+            height: auto;
+            overflow: auto;
+        }
+
+        #app-wrapper {
+            height: auto;
+            overflow: visible;
+        }
+        }
     </style>
     <style>@view-transition { navigation: auto; }</style>
     <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -639,27 +652,28 @@
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            if (href === '#' || !href.startsWith('#')) return;
-            
+            if (!href || href === '#') return;
+
             e.preventDefault();
-            
-            // Close mobile menu if open
-            mobileMenu.classList.add('hidden');
-            
+
             const target = document.querySelector(href);
-            if (target) {
-            const appWrapper = document.getElementById('app-wrapper');
-            const targetPosition = target.offsetTop;
-            appWrapper.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+            if (!target) return;
+
+            mobileMenu.classList.add('hidden');
+
+            const navHeight = document.querySelector('nav')?.offsetHeight || 80;
+
+            const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+            window.scrollTo({
+            top: y,
+            behavior: 'smooth'
             });
-            }
         });
         });
-        
+
         // Contact form handling
         document.getElementById('contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
