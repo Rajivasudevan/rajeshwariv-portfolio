@@ -1,162 +1,772 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rajeshwari V – WordPress Developer</title>
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajeshwari V - WordPress Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+        box-sizing: border-box;
+        }
+        
+        * {
+        font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .mono {
+        font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .gradient-text {
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        }
+        
+        .card-glow {
+        position: relative;
+        }
+        
+        .floating {
+        animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        }
+        
+        .slide-in {
+        animation: slideIn 0.8s ease-out forwards;
+        opacity: 0;
+        }
+        
+        @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        
+        .nav-link {
+        position: relative;
+        }
+        
+        .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #6366f1, #a855f7);
+        transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+        width: 100%;
+        }
+        
+        .skill-bar {
+        background: linear-gradient(90deg, #6366f1, #a855f7);
+        height: 100%;
+        border-radius: 9999px;
+        transition: width 1s ease-out;
+        }
+        
+        .project-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+        transform: translateY(-8px);
+        }
+        
+        .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.3;
+        animation: blob 7s infinite;
+        }
+        
+        @keyframes blob {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(30px, -50px) scale(1.1); }
+        66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        
+        .section {
+        scroll-margin-top: 80px;
+        }
+        
+        ::-webkit-scrollbar {
+        width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+        background: #0f172a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #6366f1, #a855f7);
+        border-radius: 4px;
+        }
+        
+        .mobile-menu {
+        animation: slideDown 0.3s ease-out forwards;
+        }
+        
+        @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+        /* Mobile scroll fix */
+        /* Mobile scroll fix */
+        @media (max-width: 768px) {
+        html, body {
+            height: auto;
+            overflow: auto;
+        }
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Offset for fixed navbar */
-    section {
-      scroll-margin-top: 90px;
-    }
-  </style>
-</head>
-
-<body class="bg-slate-950 text-gray-100 overflow-x-hidden">
-
-<!-- NAVBAR -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="#home" class="text-xl font-bold gradient-text">&lt;RAJESHWARI V /&gt;</a>
-
-    <div class="hidden md:flex gap-6 text-gray-300">
-      <a href="#home" class="hover:text-white">Home</a>
-      <a href="#about" class="hover:text-white">About</a>
-      <a href="#projects" class="hover:text-white">Projects</a>
-      <a href="#skills" class="hover:text-white">Skills</a>
-      <a href="#contact" class="hover:text-white">Contact</a>
+        #app-wrapper {
+            height: auto;
+            overflow: visible;
+        }
+        }
+        @media (max-width: 768px) {
+        .min-h-screen {
+            min-height: auto !important;
+        }
+        }
+    </style>
+    <style>@view-transition { navigation: auto; }</style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    </head>
+   <body class="bg-slate-950 text-gray-100 overflow-x-hidden">
+   <div id="app-wrapper" class="w-full">
+    <div class="blob w-96 h-96 bg-indigo-600 top-0 left-0 fixed"></div>
+    <div class="blob w-80 h-80 bg-purple-600 top-1/2 right-0 fixed" style="animation-delay: -3s;"></div>
+    <div class="blob w-72 h-72 bg-pink-600 bottom-0 left-1/3 fixed" style="animation-delay: -5s;"></div><!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-slate-950/70 border-b border-slate-800/50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between"><a href="#home" class="text-2xl font-bold gradient-text mono">&lt;RAJESHWARI V /&gt;</a> <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8"><a href="#home" class="nav-link text-gray-300 hover:text-white transition-colors">Home</a> <a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors">About</a> <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-colors">Projects</a> <a href="#skills" class="nav-link text-gray-300 hover:text-white transition-colors">Skills</a> <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-colors">Contact</a>
+        </div><!-- Right Section -->
+        <div class="flex items-center gap-4"><a href="https://www.linkedin.com/in/rajeshwarivasudevan" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800/50 hidden sm:block">
+            <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg></a> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-800/50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg></button>
+        </div>
+        </div><!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mobile-menu mt-4 pb-4 border-t border-slate-800"><a href="#home" class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">Home</a> <a href="#about" class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">About</a> <a href="#projects" class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">Projects</a> <a href="#skills" class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">Skills</a> <a href="#contact" class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors">Contact</a> <a href="https://www.linkedin.com/in/rajeshwarivasudevan" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 py-3 px-4 text-gray-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-colors sm:hidden">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg> LinkedIn </a>
+        </div>
+        </div>
+    </nav><!-- Hero Section -->
+    <section id="home" class="section min-h-screen flex items-center justify-center relative px-6 pt-20">
+        <div class="max-w-6xl mx-auto text-center">
+        <div class="slide-in stagger-1"><span class="mono text-indigo-400 text-sm tracking-wider">Hello, I'm</span>
+        </div>
+        <h1 id="hero-title" class="slide-in stagger-2 text-5xl md:text-7xl font-bold mt-4 mb-6"><span class="gradient-text">Rajeshwari V</span></h1>
+        <p id="hero-subtitle" class="slide-in stagger-3 text-2xl md:text-3xl text-gray-400 mb-4">WordPress Developer</p>
+        <p id="hero-tagline" class="slide-in stagger-4 text-lg text-gray-500 max-w-2xl mx-auto mb-8">Crafting beautiful, functional, and user-friendly WordPress websites with 2+ years of professional experience</p>
+        <div class="slide-in stagger-5 flex flex-wrap justify-center gap-4"><a href="#projects" class="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 font-medium transition-all hover:shadow-lg hover:shadow-indigo-500/25"> View My Work </a> <a href="#contact" class="px-8 py-3 rounded-full border border-slate-700 hover:border-indigo-500 font-medium transition-all hover:bg-slate-800/50"> Get In Touch </a>
+        </div><!-- Floating Elements -->
+        <div class="absolute top-1/4 left-10 floating opacity-20">
+        <svg class="w-16 h-16 text-indigo-500" viewbox="0 0 24 24" fill="currentColor">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+        </div>
+        <div class="absolute bottom-1/4 right-10 floating opacity-20" style="animation-delay: -2s;">
+        <svg class="w-20 h-20 text-purple-500" viewbox="0 0 24 24" fill="currentColor">
+        <path d="M21.4 7.5c.8.8.8 2.1 0 2.8l-2.8 2.8-7.8 7.8-5.6 1.4 1.4-5.6 7.8-7.8 2.8-2.8c.8-.8 2.1-.8 2.8 0l1.4 1.4z" />
+        </svg>
+        </div>
+        </div><!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <div class="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-indigo-500 rounded-full mt-2 animate-bounce"></div>
+        </div>
+        </div>
+    </section><!-- About Section -->
+    <section id="about" class="section py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16"><span class="mono text-indigo-400 text-sm tracking-wider">Get to know me</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-2 gradient-text">About Me</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center"><!-- Profile Card -->
+        <div class="relative">
+        <div class="card-glow bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-slate-800">
+            <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-500/30">
+                <img 
+                    src="assets/profile.png" 
+                    alt="Rajeshwari V"
+                    class="w-full h-full object-cover"
+                >
+                </div>  
+            <div class="text-center">
+            <h3 class="text-2xl font-bold mb-2">Rajeshwari V</h3>
+            <p class="text-indigo-400 mono text-sm mb-4">Junior WordPress Developer</p>
+            <div class="flex justify-center gap-4 text-gray-400 text-sm"><span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg><span id="profile-location">Tiruppur, Tamil Nadu</span> </span>
+            </div>
+            </div>
+        </div>
+        </div><!-- About Content -->
+        <div class="space-y-6">
+        <p id="about-description" class="text-gray-300 text-lg leading-relaxed">Motivated WordPress Developer with 2+ years of experience in theme development, customization, and website optimization. I specialize in building professional, user-friendly websites that help businesses establish their online presence.</p>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-slate-900/50 rounded-2xl p-4 border border-slate-800">
+            <div class="text-3xl font-bold gradient-text">
+            2+
+            </div>
+            <div class="text-gray-400 text-sm">
+            Years Experience
+            </div>
+            </div>
+            <div class="bg-slate-900/50 rounded-2xl p-4 border border-slate-800">
+            <div class="text-3xl font-bold gradient-text">
+            8.81
+            </div>
+            <div class="text-gray-400 text-sm">
+            CGPA Score
+            </div>
+            </div>
+        </div>
+        <div class="bg-slate-900/50 rounded-2xl p-6 border border-slate-800">
+            <h4 class="font-semibold mb-3 flex items-center gap-2">
+            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            </svg> Education</h4>
+            <p class="text-gray-300">B.E Computer Science and Engineering</p>
+            <p class="text-gray-500 text-sm">Jai Shriram Engineering College, Tirupur (2023)</p>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section><!-- Experience Section -->
+    <section class="py-24 px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16"><span class="mono text-indigo-400 text-sm tracking-wider">My Journey</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-2 gradient-text">Experience</h2>
+        </div>
+        <div class="space-y-8"><!-- Current Job -->
+        <div class="card-glow bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-slate-800">
+        <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+            <div>
+            <h3 class="text-xl font-bold">Junior WordPress Developer</h3>
+            <p class="text-indigo-400">WeDesignTech Private Limited</p>
+            </div><span class="px-4 py-1 rounded-full bg-indigo-600/20 text-indigo-400 text-sm mono">2 Years • Present</span>
+        </div>
+        <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> Developed and customized WordPress themes using HTML, CSS, PHP, and JavaScript</li>
+            <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> Built professional business and service websites with responsive layouts</li>
+            <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> Improved website speed, performance, and SEO using best practices</li>
+            <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> Integrated custom plugins and third-party tools as per project needs</li>
+        </ul>
+        </div><!-- Internship -->
+        <div class="bg-slate-900/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-800">
+        <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+            <div>
+            <h3 class="text-xl font-bold">Intern</h3>
+            <p class="text-purple-400">ProFuture Tech Solutions Pvt Ltd</p>
+            </div><span class="px-4 py-1 rounded-full bg-purple-600/20 text-purple-400 text-sm mono">Mar - Apr 2023</span>
+        </div>
+        <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> Collaborated with the development team to create web applications using PHP and MySQL</li>
+            <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> Worked on database management and user interface design</li>
+        </ul>
+        </div>
+        </div>
+        </div>
+    </section><!-- Projects Section -->
+    <section id="projects" class="section py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16"><span class="mono text-indigo-400 text-sm tracking-wider">Featured Work</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-2 gradient-text">Projects</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8"><!-- Project 1 -->
+        <div class="project-card card-glow bg-slate-900/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-slate-800">
+        <div class="h-48 overflow-hidden rounded-t-3xl">
+            <img
+                src="assets/timetable.png"
+                alt="Timetable Widget Project"
+                class="w-full h-full object-cover"
+            >
+            </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Timetable Widget</h3>
+            <p class="text-gray-400 mb-4">Custom Elementor add-on for creating interactive timetable displays</p>
+            <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">Elementor</span> <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">PHP</span> <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">JavaScript</span>
+            </div><a href="https://wdtsixpack.wpengine.com/time-table/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors"> View Project 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg></a>
+        </div>
+        </div><!-- Project 2 -->
+        <div class="project-card card-glow bg-slate-900/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-slate-800">
+            <div class="h-48 overflow-hidden rounded-t-3xl">
+            <img
+                src="assets/icon_popup.png"
+                alt="Timetable Widget Project"
+                class="w-full h-full object-cover"
+            >
+            </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Sticky Icons Popup</h3>
+            <p class="text-gray-400 mb-4">Interactive sticky icons with popup options for enhanced user engagement</p>
+            <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">CSS</span> <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">jQuery</span> <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">WordPress</span>
+            </div><a href="https://bizthemes.kinsta.cloud/carecrew/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"> View Project 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg></a>
+        </div>
+        </div><!-- Project 3 -->
+        <div class="project-card card-glow bg-slate-900/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-slate-800">
+        <div class="h-48 overflow-hidden rounded-t-3xl">
+            <img
+                src="assets/service.png"
+                alt="Timetable Widget Project"
+                class="w-full h-full object-cover"
+            >
+            </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Service Widget &amp; CPT</h3>
+            <p class="text-gray-400 mb-4">Custom Elementor service widget with custom post type integration</p>
+            <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">Elementor</span> <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">CPT</span> <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">PHP</span>
+            </div><a href="https://maanadu.wpengine.com/services/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 transition-colors"> View Project 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg></a>
+        </div>
+        </div><!-- Project 4 -->
+        <div class="project-card card-glow bg-slate-900/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-slate-800">
+        <div class="h-48 overflow-hidden rounded-t-3xl">
+            <img
+                src="assets/wocommerce.png"
+                alt="Timetable Widget Project"
+                class="w-full h-full object-cover"
+            >
+            </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">WooCommerce Swatches</h3>
+            <p class="text-gray-400 mb-4">Dropdown swatches attribute implementation for product pages</p>
+            <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">WooCommerce</span> <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">PHP</span> <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300">AJAX</span>
+            </div><a href="https://maanadu.wpengine.com/product/colombian-pride-badges/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"> View Project 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg></a>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section><!-- Skills Section -->
+    <section id="skills" class="section py-24 px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16"><span class="mono text-indigo-400 text-sm tracking-wider">What I know</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-2 gradient-text">Skills</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8"><!-- Languages -->
+        <div class="bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-slate-800">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-6">Languages</h3>
+        <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-indigo-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> PHP</li>
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-indigo-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> JavaScript</li>
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-indigo-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> HTML/CSS</li>
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-indigo-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> jQuery/AJAX</li>
+        </ul>
+        </div><!-- CMS & Tools -->
+        <div class="bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-slate-800">
+        <div class="w-14 h-14 rounded-2xl bg-purple-600/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-6">CMS &amp; Tools</h3>
+        <div class="flex flex-wrap gap-3"><span class="px-4 py-2 rounded-xl bg-slate-800 text-sm hover:bg-indigo-600/20 transition-colors cursor-default">WordPress</span> <span class="px-4 py-2 rounded-xl bg-slate-800 text-sm hover:bg-indigo-600/20 transition-colors cursor-default">Elementor</span> <span class="px-4 py-2 rounded-xl bg-slate-800 text-sm hover:bg-indigo-600/20 transition-colors cursor-default">WPBakery</span> <span class="px-4 py-2 rounded-xl bg-slate-800 text-sm hover:bg-indigo-600/20 transition-colors cursor-default">WooCommerce</span> <span class="px-4 py-2 rounded-xl bg-slate-800 text-sm hover:bg-indigo-600/20 transition-colors cursor-default">Git</span><span class="px-4 py-2 rounded-xl bg-slate-800 text-sm hover:bg-indigo-600/20 transition-colors cursor-default">GitHub</span> <span class="px-4 py-2 rounded-xl bg-slate-800 text-sm hover:bg-indigo-600/20 transition-colors cursor-default">cPanel</span> <span class="px-4 py-2 rounded-xl bg-slate-800 text-sm hover:bg-indigo-600/20 transition-colors cursor-default">AWS</span>
+        </div>
+        </div><!-- Other Skills -->
+        <div class="bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-slate-800">
+        <div class="w-14 h-14 rounded-2xl bg-pink-600/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-6">Expertise</h3>
+        <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> Theme Development</li>
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> Plugin Development</li>
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> Theme Debugging</li>
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> Website Optimization</li>
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> Responsive Design</li>
+            <li class="flex items-center gap-3 text-gray-300">
+            <svg class="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg> SEO Best Practices</li>
+        </ul>
+        </div>
+        </div>
+        </div>
+    </section><!-- Contact Section -->
+    <section id="contact" class="section py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16"><span class="mono text-indigo-400 text-sm tracking-wider">Let's connect</span>
+        <h2 class="text-4xl md:text-5xl font-bold mt-2 gradient-text">Get In Touch</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12"><!-- Contact Info -->
+        <div class="space-y-6">
+        <p class="text-gray-300 text-lg">I'm currently open to new opportunities and collaborations. Whether you have a project in mind or just want to say hello, feel free to reach out!</p>
+        <div class="space-y-4"><a href="mailto:rajicse2002@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 transition-colors group">
+            <div class="w-12 h-12 rounded-xl bg-indigo-600/20 flex items-center justify-center group-hover:bg-indigo-600/30 transition-colors">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            </div>
+            <div>
+            <p class="text-sm text-gray-500">Email</p>
+            <p id="contact-email" class="text-gray-200">rajicse2002@gmail.com</p>
+            </div></a> <a href="tel:+919150147065" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 transition-colors group">
+            <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center group-hover:bg-purple-600/30 transition-colors">
+            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            </div>
+            <div>
+            <p class="text-sm text-gray-500">Phone</p>
+            <p id="contact-phone" class="text-gray-200">+91 9150147065</p>
+            </div></a>
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-pink-600/20 flex items-center justify-center">
+            <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            </div>
+            <div>
+            <p class="text-sm text-gray-500">Location</p>
+            <p id="contact-location" class="text-gray-200">Tiruppur, Tamil Nadu</p>
+            </div>
+            </div>
+        </div><!-- Social Links -->
+        <div class="flex gap-4 pt-4"><a href="https://www.linkedin.com/in/rajeshwarivasudevan" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg></a>
+        </div>
+        </div><!-- Contact Form -->
+        <div class="card-glow bg-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-slate-800">
+        <form id="contact-form" class="space-y-6">
+            <div><label for="name" class="block text-sm text-gray-400 mb-2">Your Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all" placeholder="John Doe">
+            </div>
+            <div><label for="email" class="block text-sm text-gray-400 mb-2">Your Email</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all" placeholder="john@example.com">
+            </div>
+            <div><label for="message" class="block text-sm text-gray-400 mb-2">Message</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-slate-700 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none" placeholder="Tell me about your project..."></textarea>
+            </div><button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 font-semibold transition-all hover:shadow-lg hover:shadow-indigo-500/25 flex items-center justify-center gap-2"> <span>Send Message</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg></button>
+        </form>
+        <div id="form-success" class="hidden mt-6 p-4 rounded-xl bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 text-center">
+            <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> Message sent successfully! I'll get back to you soon.
+        </div>
+        </div>
+        </div>
+        </div>
+    </section><!-- Footer -->
+    <footer class="py-8 px-6 border-t border-slate-800/50">
+        <div class="max-w-6xl mx-auto text-center">
+        <p class="text-gray-500">© 2024 Rajeshwari V. Crafted with 💜 using WordPress expertise.</p>
+        </div>
+    </footer>
     </div>
-  </div>
-</nav>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        });
+        
+        // Default configuration
+        const defaultConfig = {
+        hero_title: 'Rajeshwari V',
+        hero_subtitle: 'WordPress Developer',
+        hero_tagline: 'Crafting beautiful, functional, and user-friendly WordPress websites with 2+ years of professional experience',
+        about_description: 'Motivated WordPress Developer with 2+ years of experience in theme development, customization, and website optimization. I specialize in building professional, user-friendly websites that help businesses establish their online presence.',
+        contact_email: 'rajicse2002@gmail.com',
+        contact_phone: '+91 9150147065',
+        contact_location: 'Tiruppur, Tamil Nadu',
+        primary_color: '#6366f1',
+        secondary_color: '#a855f7',
+        accent_color: '#ec4899',
+        background_color: '#020617',
+        text_color: '#f1f5f9'
+        };
+        
+        // Initialize Element SDK
+        window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+            // Update hero section
+            document.getElementById('hero-title').querySelector('.gradient-text').textContent = config.hero_title || defaultConfig.hero_title;
+            document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+            document.getElementById('hero-tagline').textContent = config.hero_tagline || defaultConfig.hero_tagline;
+            
+            // Update about section
+            document.getElementById('about-description').textContent = config.about_description || defaultConfig.about_description;
+            
+            // Update contact section
+            document.getElementById('contact-email').textContent = config.contact_email || defaultConfig.contact_email;
+            document.getElementById('contact-phone').textContent = config.contact_phone || defaultConfig.contact_phone;
+            document.getElementById('contact-location').textContent = config.contact_location || defaultConfig.contact_location;
+            document.getElementById('profile-location').textContent = config.contact_location || defaultConfig.contact_location;
+            
+            // Update colors
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+            const bgColor = config.background_color || defaultConfig.background_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            
+            document.body.style.backgroundColor = bgColor;
+            document.body.style.color = textColor;
+        },
+        mapToCapabilities: (config) => ({
+            recolorables: [
+            {
+                get: () => config.background_color || defaultConfig.background_color,
+                set: (value) => window.elementSdk.setConfig({ background_color: value })
+            },
+            {
+                get: () => config.primary_color || defaultConfig.primary_color,
+                set: (value) => window.elementSdk.setConfig({ primary_color: value })
+            },
+            {
+                get: () => config.secondary_color || defaultConfig.secondary_color,
+                set: (value) => window.elementSdk.setConfig({ secondary_color: value })
+            },
+            {
+                get: () => config.accent_color || defaultConfig.accent_color,
+                set: (value) => window.elementSdk.setConfig({ accent_color: value })
+            },
+            {
+                get: () => config.text_color || defaultConfig.text_color,
+                set: (value) => window.elementSdk.setConfig({ text_color: value })
+            }
+            ],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+            ['hero_title', config.hero_title || defaultConfig.hero_title],
+            ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+            ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
+            ['about_description', config.about_description || defaultConfig.about_description],
+            ['contact_email', config.contact_email || defaultConfig.contact_email],
+            ['contact_phone', config.contact_phone || defaultConfig.contact_phone],
+            ['contact_location', config.contact_location || defaultConfig.contact_location]
+        ])
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (!href || href === '#') return;
 
-<!-- HERO -->
-<section id="home" class="min-h-screen flex items-center pt-24 px-6">
-  <div class="max-w-4xl mx-auto text-center">
-    <p class="text-indigo-400 mb-2">Hello, I’m</p>
-    <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-4">Rajeshwari V</h1>
-    <p class="text-2xl text-gray-400 mb-6">WordPress Developer</p>
-    <p class="text-gray-500 max-w-2xl mx-auto mb-8">
-      Crafting clean, responsive, and performance-focused WordPress websites with 2+ years of experience.
-    </p>
+    e.preventDefault();
 
-    <div class="flex justify-center gap-4">
-      <a href="#projects" class="px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 transition">
-        View Projects
-      </a>
-      <a href="#contact" class="px-6 py-3 rounded-full border border-slate-700 hover:border-indigo-500 transition">
-        Contact Me
-      </a>
-    </div>
-  </div>
-</section>
+    const target = document.querySelector(href);
+    if (!target) return;
 
-<!-- ABOUT -->
-<section id="about" class="py-24 px-6">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-4xl font-bold gradient-text mb-6 text-center">About Me</h2>
+    mobileMenu.classList.add('hidden');
 
-    <p class="text-gray-300 text-lg text-center max-w-3xl mx-auto">
-      Motivated WordPress Developer with hands-on experience in theme customization, plugin integration,
-      performance optimization, and responsive UI development.
-    </p>
+    const navHeight = document.querySelector('nav')?.offsetHeight || 80;
+    const y = target.offsetTop - navHeight;
 
-    <div class="grid grid-cols-2 gap-6 max-w-xl mx-auto mt-12">
-      <div class="bg-slate-900 p-6 rounded-xl text-center">
-        <p class="text-3xl font-bold gradient-text">2+</p>
-        <p class="text-gray-400">Years Experience</p>
-      </div>
-      <div class="bg-slate-900 p-6 rounded-xl text-center">
-        <p class="text-3xl font-bold gradient-text">8.81</p>
-        <p class="text-gray-400">CGPA</p>
-      </div>
-    </div>
-  </div>
-</section>
+    // Disable smooth scroll on mobile
+    const isMobile = window.innerWidth < 768;
 
-<!-- PROJECTS -->
-<section id="projects" class="py-24 px-6 bg-slate-900/30">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-4xl font-bold gradient-text mb-12 text-center">Projects</h2>
+    window.scrollTo({
+      top: y,
+      behavior: isMobile ? 'auto' : 'smooth'
+    });
+  });
+});
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-slate-900 rounded-xl p-6">
-        <h3 class="text-xl font-semibold mb-2">Timetable Widget</h3>
-        <p class="text-gray-400 mb-4">Custom Elementor timetable add-on.</p>
-        <a href="https://wdtsixpack.wpengine.com/time-table/" target="_blank" class="text-indigo-400 hover:underline">
-          View Project →
-        </a>
-      </div>
 
-      <div class="bg-slate-900 rounded-xl p-6">
-        <h3 class="text-xl font-semibold mb-2">Sticky Icons Popup</h3>
-        <p class="text-gray-400 mb-4">Interactive sticky popup for WordPress sites.</p>
-        <a href="https://bizthemes.kinsta.cloud/carecrew/" target="_blank" class="text-indigo-400 hover:underline">
-          View Project →
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="py-24 px-6">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-4xl font-bold gradient-text mb-12 text-center">Skills</h2>
-
-    <div class="grid md:grid-cols-3 gap-6 text-center">
-      <div class="bg-slate-900 p-6 rounded-xl">PHP</div>
-      <div class="bg-slate-900 p-6 rounded-xl">JavaScript</div>
-      <div class="bg-slate-900 p-6 rounded-xl">HTML / CSS</div>
-      <div class="bg-slate-900 p-6 rounded-xl">WordPress</div>
-      <div class="bg-slate-900 p-6 rounded-xl">Elementor</div>
-      <div class="bg-slate-900 p-6 rounded-xl">WooCommerce</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT (NO FORM) -->
-<section id="contact" class="py-24 px-6 bg-slate-900/30">
-  <div class="max-w-xl mx-auto text-center">
-    <h2 class="text-4xl font-bold gradient-text mb-6">Get In Touch</h2>
-
-    <p class="text-gray-400 mb-8">
-      Interested in working together or have a question?
-    </p>
-
-    <div class="space-y-4">
-      <p>Email: <a href="mailto:rajicse2002@gmail.com" class="text-indigo-400">rajicse2002@gmail.com</a></p>
-      <p>Phone: <span class="text-indigo-400">+91 9150147065</span></p>
-      <p>Location: <span class="text-indigo-400">Tiruppur, Tamil Nadu</span></p>
-
-      <a href="https://www.linkedin.com/in/rajeshwarivasudevan" target="_blank"
-         class="inline-block mt-6 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 transition">
-        LinkedIn Profile
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="py-6 text-center text-gray-500 border-t border-slate-800">
-  © 2024 Rajeshwari V
-</footer>
-
-</body>
-</html>
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Validate inputs
+        if (!name || !email || !message) {
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'p-4 rounded-xl bg-red-600/20 border border-red-500/30 text-red-400 text-center';
+            errorMsg.innerHTML = '<svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Please fill all fields!';
+            this.parentElement.appendChild(errorMsg);
+            setTimeout(() => errorMsg.remove(), 3000);
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending...</span>';
+        
+        // Send email using Formspree or similar service
+        fetch('https://formspree.io/f/xzzvaqql', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+            // Show success message
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('form-success').classList.remove('hidden');
+            
+            // Reset form after delay
+            setTimeout(() => {
+                document.getElementById('contact-form').reset();
+                document.getElementById('contact-form').classList.remove('hidden');
+                document.getElementById('form-success').classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Send Message</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>';
+            }, 5000);
+            } else {
+            throw new Error('Failed to send');
+            }
+        })
+        .catch(error => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Send Message</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>';
+            
+            // Show error message
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'p-4 rounded-xl bg-red-600/20 border border-red-500/30 text-red-400 text-center';
+            errorMsg.innerHTML = '<svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Error sending message. Please try again.';
+            this.parentElement.appendChild(errorMsg);
+            setTimeout(() => errorMsg.remove(), 5000);
+        });
+        });
+        
+        // Animate skill bars on scroll
+        const observerOptions = {
+        threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.skill-bar').forEach(bar => {
+                bar.style.width = bar.parentElement.previousElementSibling.querySelector('.text-indigo-400').textContent;
+            });
+            }
+        });
+        }, observerOptions);
+        
+        document.querySelectorAll('#skills .bg-slate-900\\/80').forEach(section => {
+        observer.observe(section);
+        });
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c35c84da2e8396c',t:'MTc2OTMyMzI2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    </html>
